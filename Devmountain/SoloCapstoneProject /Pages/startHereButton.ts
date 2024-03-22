@@ -16,14 +16,14 @@ export class startHere extends BasePage {
     constructor () {
         super ({url: "https://www.powwows.com/"});
     };
-    async scroll() {
+    async scroll() {///totally not doing this correctly.....
         let frame = await this.driver.findElement(this.welcome);
-        let webElement = await this.driver.findElement(this.find);
-        let web = await this.driver.findElement(this.learn);
-        let somethingElse = await this.driver.findElement(this.join);
-        let anotherSomething = await this.driver.findElement(this.shop);
-        let someOtherThing = await this.driver.findElement(this.mostPopular);
-        let anotherOther = await this.driver.findElement(this.whatToExpect);
-        let lastSomething = await this.driver.findElement(this.bottom);
+        let frame = await this.driver.findElement(this.find);
+        let frame = await this.driver.findElement(this.learn);
+        let frame = await this.driver.findElement(this.join);
+        let frame = await this.driver.findElement(this.shop);
+        let frame = await this.driver.findElement(this.mostPopular);
+        let frame = await this.driver.findElement(this.whatToExpect);
+        let frame = await this.driver.findElement(this.bottom);
     };
 };
