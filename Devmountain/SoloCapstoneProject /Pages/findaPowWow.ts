@@ -14,8 +14,18 @@ export class findaPow extends BasePage {
     viewFlyer: By = By.xpath('//button[@class="btn btn-primary btn-lg mt-3"]');
     searchHere: By = By.xpath('//input[@class="orig"]');
     results: By = By.xpath('//div[@class="form-group blue-bg p-3"]');
+    moreBtn: By = By.xpath('(//button[@class="btn btn-primary btn-lg"])[2]');
+    moreBtn2: By = By.xpath('(//button[@class="btn btn-primary btn-lg"])[3]');
+    popUpClose: By = By.xpath('(//div[@class="cb-close"])[2]'); 
     
     constructor () {
         super ({url: "https://www.powwows.com/"});
+    };
+    async scroll(elementBy:By) {
+        const scrollThing = await this.getElement(elementBy); 
+        await this.driver.actions()
+        .move({origin: scrollThing}) 
+        .perform(); 
+        await this.driver.sleep(2000)
     };
 };

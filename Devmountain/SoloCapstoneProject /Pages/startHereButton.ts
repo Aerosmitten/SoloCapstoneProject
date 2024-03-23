@@ -1,5 +1,6 @@
 import { By } from "selenium-webdriver"
 import { BasePage } from "./basePage"
+const fs = require ('fs')
 
 export class startHere extends BasePage {
     startHere: By = By.xpath('//li[@id="menu-item-96333"]');
@@ -16,14 +17,11 @@ export class startHere extends BasePage {
     constructor () {
         super ({url: "https://www.powwows.com/"});
     };
-    async scroll() {///totally not doing this correctly.....
-        let frame = await this.driver.findElement(this.welcome);
-        let frame = await this.driver.findElement(this.find);
-        let frame = await this.driver.findElement(this.learn);
-        let frame = await this.driver.findElement(this.join);
-        let frame = await this.driver.findElement(this.shop);
-        let frame = await this.driver.findElement(this.mostPopular);
-        let frame = await this.driver.findElement(this.whatToExpect);
-        let frame = await this.driver.findElement(this.bottom);
+    async scroll(elementBy:By) {
+        const scrollThing = await this.getElement(elementBy); 
+        await this.driver.actions()
+        .move({origin: scrollThing}) 
+        .perform(); 
+        await this.driver.sleep(2000)
     };
 };

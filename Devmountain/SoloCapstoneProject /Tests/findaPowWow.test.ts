@@ -5,22 +5,28 @@ const fs = require ('fs')
 describe("Testing PowWows.com for Solo Capstone Project.", () => {
 beforeEach (async () => {
     await page.navigate();
+    await page.driver.manage().window().maximize();
+    await page.driver.sleep(2000);
 });
 afterAll (async () => {
     await page.driver.quit();
 });
-test.skip ("Testing the Find a Pow Wow search by Month, Year, and State dropdown menus", async () => {
+test ("Testing the Find a Pow Wow search by Month, Year, and State dropdown menus", async () => {
 //First click on the "Full Calendar" button 
 await page.click(page.fullCalendar);
+await page.scroll(page.moreBtn);
 // Then select March for month
 await page.click(page.selectMonth);
 await page.click(page.month);
+await page.driver.sleep(2000);
+await page.click(page.popUpClose);
+await page.scroll(page.moreBtn2);
 //Then select 2024 for year
 await page.click(page.selectYear);
 await page.click(page.year);
 //Then select Colorado for State
 await page.click(page.selectState);
-await page.click(page.year);
+await page.click(page.state);
 //Then click the search button
 await page.click(page.searchBtn);
 //Screenshot this page
@@ -56,7 +62,8 @@ await page.click(page.fullCalendar);
 await page.click(page.searchHere);
 //Enter "Denver" into the search input
 await page.driver.findElement(page.searchHere).sendKeys("Denver")
-await page.driver.findElement(page.results);
+await page.scroll(page.moreBtn);
+// await page.driver.findElement(page.results);
 await page.driver.sleep(5000);
 //Screenshot results
 fs.writeFile(`${__dirname}/powWow4.png`,
