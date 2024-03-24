@@ -62,4 +62,11 @@ export class BasePage {
         .move({origin: originElement, x:0, y:10, duration: moveDurationMS})
         .pause(moveDurationMS)
     }; 
+    async scroll(elementBy:By) {
+        const scrollThing = await this.getElement(elementBy); 
+        await this.driver.actions()
+        .move({origin: scrollThing}) 
+        .perform(); 
+        await this.driver.sleep(2000)
+    };
 };
