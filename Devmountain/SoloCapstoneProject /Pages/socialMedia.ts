@@ -3,6 +3,7 @@ import { BasePage } from "./basePage";
 
 export class sm extends BasePage {
     //Locators go here
+    bottom: By = By.xpath('//p[text()="Copyright © 2024 Pow Wows, Inc. All rights reserved"]');
     faceBook: By = By.xpath('//span[@class="dashicons dashicons-facebook me-2"]');
     twitter: By = By.xpath('//span[@class="dashicons dashicons-twitter me-2"]');
     instagram:By = By.xpath('//span[@class="dashicons dashicons-instagram me-1"]');
