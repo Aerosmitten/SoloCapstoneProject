@@ -1,6 +1,5 @@
 import { By } from "selenium-webdriver"
 import { BasePage } from "./basePage"
-const fs = require ('fs')
 
 export class startHere extends BasePage {
     startHere: By = By.xpath('//li[@id="menu-item-96333"]');

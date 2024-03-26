@@ -13,7 +13,7 @@ test ("Checking to see if the Find a Pow Wow dropdown menu drops down, taking a 
 // First we want to hover the mouse over the "Find a PowWow" dropdown menu
 await page.canHover(page.find),
 //Then we want to take a screenshot of this 
-await fs.writeFile(`${__dirname}/findaDrop.png`,
+await fs.writeFile(`${__dirname}/dropFindA.png`,
 await page.driver.takeScreenshot(), 'base64',
 (e) => {
     if (e) console.error(e)
@@ -24,7 +24,7 @@ test ("Checking to see if the Learn & Explore dropdown menu drops down, taking a
 //Hover mouse over the "Learn and Explore" dropdown menu
 await page.canHover(page.learn),
 //Then we want to take a screenshot of this
-await fs.writeFile(`${__dirname}/learnDrop.png`,
+await fs.writeFile(`${__dirname}/dropLearn.png`,
 await page.driver.takeScreenshot(), 'base64',
 (e) => {
     if (e) console.error(e)
@@ -35,7 +35,7 @@ test ("Checking to see if the Join our Community dropdown menu drops down, takin
 //Hover mouse over the "Join our Community" dropdown menu
 await page.canHover(page.join),
 //Then we want to take a screenshot of this
-await fs.writeFile(`${__dirname}/joinDrop.png`,
+await fs.writeFile(`${__dirname}/dropJoin.png`,
 await page.driver.takeScreenshot(), 'base64',
 (e) => {
     if (e) console.error(e)
@@ -46,7 +46,7 @@ test ("Checking to see if the Shop dropdown menu drops down, taking a screenshot
 //Hover mouse over the "Shop" dropdown menu
 await page.canHover(page.shop),
 //Then we want to take a screenshot of this
-await fs.writeFile(`${__dirname}/shopDrop.png`,
+await fs.writeFile(`${__dirname}/dropShop.png`,
 await page.driver.takeScreenshot(), 'base64',
 (e) => {
     if (e) console.error(e)
