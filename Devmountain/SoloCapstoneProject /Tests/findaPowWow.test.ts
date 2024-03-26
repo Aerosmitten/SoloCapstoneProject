@@ -19,7 +19,7 @@ await page.scroll(page.moreBtn);
 await page.click(page.selectMonth);
 await page.click(page.month);
 await page.driver.sleep(2000);
-// await page.click(page.popUpClose);
+await page.click(page.popUpClose);
 await page.scroll(page.moreBtn2);
 //Then select 2024 for year
 await page.click(page.selectYear);
