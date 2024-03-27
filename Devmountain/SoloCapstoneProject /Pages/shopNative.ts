@@ -7,6 +7,7 @@ export class sn extends BasePage {
     searchInput: By = By.xpath('(//input[@name="q"])[2]');
     searchListingBtn: By = By.xpath('//div[@class="directorist-search-form-action__submit"]');
     results: By = By.xpath('//h1[text()="Search Result"]');
+    locator: By = By.xpath('(//h2[text()="Latest Listings"])[1]');
     clothingAndAcc: By = By.xpath('//h4[text()="Clothing and Accessories"]');
     art: By = By.xpath('//h4[text()="Art"]');
     jewlery: By = By.xpath('//h4[text()="Jewelry"]');
@@ -18,12 +19,13 @@ export class sn extends BasePage {
     homeBtn: By = By.xpath('//img[@class="logo ms-md-5 no-lazy"]');
     hoverShop: By = By.xpath('(//a[text()="Shop"][1])');
     shopNative: By = By.xpath('(//a[text()="Shop Native"])[1]');
-    viewAllListings: By = By.xpath('//button[text()="View all Listings"]');
+    viewAllListings: By = By.xpath('//button[@class="btn btn-primary ps-5 pe-5 pt-3 pb-3 btn-lg huge"]');
     shopDrop: By = By.xpath('(//a[text()="Shop"])[1]');
     powWow: By = By.xpath('(//a[text()="Powwows.com Stores"])[1]');
     shopNow: By = By.xpath('(//button[text()="Shop Now"])[1]');
-    directoryOf: By = By.xpath('(//button[text()="Shop Now"])[2]');
-    classifieds: By = By.xpath('(//a[text()="Classifieds"])[1]');
+    directoryOf: By = By.xpath('(//button[@class="btn btn btn-primary pt-lg-3 pb-lg-3 btn-lg huge"])[2]');
+    classifieds: By = By.xpath('(//button[@class="btn btn btn-primary pt-lg-3 pb-lg-3 btn-lg huge"])[3]');
+    Key: any;
 
     constructor () {
         super ({url: "https://www.powwows.com/"});

@@ -10,7 +10,7 @@ describe ("Testing PowWows.com for Solo Capstone Project.", () => {
     afterAll (async () => {
         await page.driver.quit();
     });
-test.skip ("Testing Shopping from the Big Search Button and using the search input", async () => {
+test ("Testing Shopping from the Big Search Button and using the search input", async () => {
     //Scroll down to the Big Search Buttons
     await page.scroll(page.bigSearchBtn);
     //Click "Shop Native"
@@ -19,8 +19,8 @@ test.skip ("Testing Shopping from the Big Search Button and using the search inp
     await page.click(page.searchInput);
     //Enter "Ribbin Skirt"
     await page.sendKeys(page.searchInput, "Ribbon Skirt");
-    //Click "Search Listing"
-    await page.click(page.searchListingBtn);//can't quite get to the results, possibly wrong locator for submit button??
+    //Press "Enter"
+    await page.driver.actions().sendKeys("\uE007").perform();
     await page.driver.sleep(2000);
     //Screenshot results
     fs.writeFile(`${__dirname}/shop-bsb-input.png`,
@@ -30,13 +30,14 @@ test.skip ("Testing Shopping from the Big Search Button and using the search inp
         else console.log("Screenshot Ribbon Skirt Successful")
     });
 });
-test.skip ("Testing Shopping from the Big Search Button and trying all of the Popular Categories", async () => {//Not getting the correct screenshots
+test ("Testing Shopping from the Big Search Button and trying all of the Popular Categories", async () => {
     //Scroll down to the Big Search Buttons
     await page.scroll(page.bigSearchBtn);
     //Click "Shop Native"
     await page.click(page.bigSearchBtn);
     //Click "Clothings and Accessories"
     await page.click(page.clothingAndAcc)
+    await page.driver.sleep(2000);
     //Screenshot results
     fs.writeFile(`${__dirname}/shop-bsb-clothing-accessories.png`,
     await page.driver.takeScreenshot(), 'base64',
@@ -48,8 +49,9 @@ test.skip ("Testing Shopping from the Big Search Button and trying all of the Po
     await page.click(page.homeBtn);
     //Click "art"
     await page.click(page.art);
+    await page.driver.sleep(2000);
     //Screenshot resluts
-    fs.writeFile(`${__dirname}/shop-bsb-Attr.png`,
+    fs.writeFile(`${__dirname}/shop-bsb-Art.png`,
     await page.driver.takeScreenshot(), 'base64',
     async (e) => {
         if (e) console.error(e)
@@ -59,6 +61,7 @@ test.skip ("Testing Shopping from the Big Search Button and trying all of the Po
     await page.click(page.homeBtn);
     //Click "Jewlery"
     await page.click(page.jewlery);
+    await page.driver.sleep(2000);
     //Screenshot results
     fs.writeFile(`${__dirname}/shop-bsb-jewlery.png`,
     await page.driver.takeScreenshot(), 'base64',
@@ -70,6 +73,7 @@ test.skip ("Testing Shopping from the Big Search Button and trying all of the Po
     await page.click(page.homeBtn);
     //Click "Food"
     await page.click(page.food);
+    await page.driver.sleep(2000);
     //Screenshot results
     fs.writeFile(`${__dirname}/shop-bsb-food.png`,
     await page.driver.takeScreenshot(), 'base64',
@@ -80,7 +84,9 @@ test.skip ("Testing Shopping from the Big Search Button and trying all of the Po
     //Click Home button
     await page.click(page.homeBtn);
     //Click "Beauty"
+    await page.scroll(page.locator);
     await page.click(page.beauty);
+    await page.driver.sleep(2000);
     //Screenshot results
     fs.writeFile(`${__dirname}/shop-bsb-beauty.png`,
     await page.driver.takeScreenshot(), 'base64',
@@ -90,8 +96,10 @@ test.skip ("Testing Shopping from the Big Search Button and trying all of the Po
     });
     //Click Home button
     await page.click(page.homeBtn);
+    await page.scroll(page.locator);
     //Click "Beadwork"
     await page.click(page.beadwork);
+    await page.driver.sleep(2000);
     //Screenshot results
     fs.writeFile(`${__dirname}/shop-bsb-beadwork.png`,
     await page.driver.takeScreenshot(), 'base64',
@@ -101,8 +109,10 @@ test.skip ("Testing Shopping from the Big Search Button and trying all of the Po
     });
     //Click Home button
     await page.click(page.homeBtn);
+    await page.scroll(page.locator);
     //Click "Pow Wow Supplies & Regalia"
     await page.click(page.supplies);
+    await page.driver.sleep(2000);
     //Screenshot results
     fs.writeFile(`${__dirname}/shop-bsb-supples.png`,
     await page.driver.takeScreenshot(), 'base64',
@@ -112,8 +122,10 @@ test.skip ("Testing Shopping from the Big Search Button and trying all of the Po
     });
     //Click Home button
     await page.click(page.homeBtn);
+    await page.scroll(page.locator);
     //Click "Books"
     await page.click(page.books);
+    await page.driver.sleep(2000);
     //Screenshot results
     fs.writeFile(`${__dirname}/shop-bsb-books.png`,
     await page.driver.takeScreenshot(), 'base64',
@@ -123,13 +135,14 @@ test.skip ("Testing Shopping from the Big Search Button and trying all of the Po
     });
 
 });
-test.skip ("Testing Shopping from the Dropdown Menu and View all Listings", async () => { //Not getting screenshot of the correct thing
+test ("Testing Shopping from the Dropdown Menu and View all Listings", async () => {
     //Hover over "Shop" Dropdown Menu
     await page.canHover(page.hoverShop);
     //Click "Shop Native"
     await page.click(page.shopNative);
     //Click "View all Listings"
     await page.click(page.viewAllListings);
+    await page.driver.sleep(2000);
     //Screenshot results
     fs.writeFile(`${__dirname}/shop-drop-viewAll.png`,
     await page.driver.takeScreenshot(), 'base64',
@@ -138,11 +151,12 @@ test.skip ("Testing Shopping from the Dropdown Menu and View all Listings", asyn
         else console.log("Screenshot View All Successful")
     });
 });
-test.skip ("Testing Shopping by clicking the 'Shop' Dropdown Menu and Shop Pow Wows Merch", async () => { //Not getting screenshot of correct thing
+test ("Testing Shopping by clicking the 'Shop' Dropdown Menu and Shop Pow Wows Merch", async () => { 
     //Click the "Shop" dropdown Menu
     await page.click(page.shopDrop);
     //Click "Shop Now" on Shop Pow Wows Merch
     await page.click(page.shopNow);
+    await page.driver.sleep(2000);
     //Screenshot results
     fs.writeFile(`${__dirname}/shop-drop-PowWow-Merch.png`,
     await page.driver.takeScreenshot(), 'base64',
@@ -151,11 +165,12 @@ test.skip ("Testing Shopping by clicking the 'Shop' Dropdown Menu and Shop Pow W
         else console.log("Screenshot Pow Wow Merch Successful")
     });
 });
-test.skip ("Testing Shopping by clicking the 'Shop' Dropdown Menu and Directory of Native Products/Stores", async () => {//Not getting correct screenshot
+test ("Testing Shopping by clicking the 'Shop' Dropdown Menu and Directory of Native Products/Stores", async () => {
     //Click the "Shop" Dropdown Menu
     await page.click(page.shopDrop);
     //Click "Shop Now" on Directory of Native Products/Stores
     await page.click(page.directoryOf);
+    await page.driver.sleep(2000);
     //Screenshot results
     fs.writeFile(`${__dirname}/shop-drop-directory.png`,
     await page.driver.takeScreenshot(), 'base64',
@@ -164,11 +179,11 @@ test.skip ("Testing Shopping by clicking the 'Shop' Dropdown Menu and Directory 
         else console.log("Screenshot Directory of Native Products/Stores Successful")
     });
 });
-test ("Testing Shopping from the Dropdown Menu and Pow Wows Classifieds", async () => {//wrongs locator??
+test ("Testing Shopping from the Dropdown Menu and Pow Wows Classifieds", async () => {
     //Click the "Shop" Dropdown Menu
     await page.click(page.shopDrop);
-    await page.scroll(page.classifieds);    //Click "Join Today" on Pow Wows Classifieds
-  
+    await page.scroll(page.classifieds);   
+     //Click "Join Today" on Pow Wows Classifieds
     await page.click(page.classifieds);
     //Screenshot results
     fs.writeFile(`${__dirname}/shop-drop-classifieds.png`,
